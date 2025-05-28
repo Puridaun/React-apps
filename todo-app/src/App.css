@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+
+
+  --Body-background-color: #F2F2F2;
+  --Primary-background-color: white;
+  --text-color: #494C6B;
+  --active-bar-text-color: #9495A5;
+  --border-color: #E3E4F1;
+  --hover-text-color: #3A7CFD;
+  --active-text-color: #494C6B;
+  --completed-todo-color: #D1D2DA;
+}
+
+#root {
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.dark-theme {
+  --Body-background-color: #25273D;
+  --Primary-background-color: #25273D;
+  --text-color: #C8CBE7;
+  --border-color: #393A4B;
+  --active-bar-text-color: #5B5E7E;
+  --completed-todo-color: #4D5067;
+  --active-text-color: #3A7CFD;
+  --hover-text-color: white;
+}
+
+/* 
+Breakpoints:
+640px
+768px
+1024px
+1280px
+1536px
+*/
+
+body {
+  padding: 48px 24px;
+  background-color: var(--Body-background-color);
+}
+
+button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* ----------------------------------------------- */
+.top-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.top-background img {
+  width: 100%;
+}
+
+.change-theme {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  color: var(--Primary-background-color);
+}
+
+h1 {
+  letter-spacing: 15px;
+}
+
+
+
+.todo-input {
+  all: inherit;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--Primary-background-color);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  margin-bottom: 16px;
+  color: var(--text-color);
+}
+
+.todo-items-list,
+.filter-item-list,
+.filter-comands {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--Primary-background-color);
+  padding: 16px 20px;
+  border-radius: 4px;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.checked-item-text {
+  text-decoration: line-through;
+  color: var(--completed-todo-color);
+}
+
+.todo-items-list button {
+  margin-left: auto;
+}
+
+.filter-item-list {
+  justify-content: space-between;
+  color: var(--active-bar-text-color);
+}
+
+.filter-item-list div {
+  display: flex;
+  gap: 16px;
+}
+
+.filter-comands {
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.filter-comands span:nth-child(1) {
+  color: var(--active-text-color);
+}
+
+.filter-comands span:nth-child(1):hover,
+span:nth-child(2):hover,
+span:nth-child(3):hover {
+  color: var(--hover-text-color);
+  cursor: pointer;
+}
+
+
+.hide {
+  display: none !important
+}
+
+@media (min-width: 640px) {
+
+
+  .todo-input {
+
+    border-radius: 4px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+
+  .todo-items-list,
+  .filter-item-list,
+  .filter-comands {
+
+    gap: 12px;
+    padding: 20px 24px;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+
+  .top-background {
+    height: 300px;
+  }
+}
