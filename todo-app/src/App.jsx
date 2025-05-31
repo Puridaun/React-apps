@@ -1,5 +1,9 @@
 import { use, useState } from 'react'
-import './App.css'
+import './App.css';
+import Headbar from './components/Headbar';
+import TodoForm from './components/TodoForm';
+import TodoItemsList from './components/TodoItemsList';
+import TodoItemsFilter from './components/TodoItemsFilter';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -88,31 +92,9 @@ function App() {
 
   return (
     <>
-
-      <div className='top-background'>
-        <img src={isDarkTheme ? './src/assets/Bitmap-Moon.svg' : './src/assets/Bitmap-Sun.svg'} />
-      </div>
-      <div className='change-theme'>
-        <h1>TODO</h1>
-        <img onClick={isLightTheme} src={isDarkTheme ? './src/assets/Sun.svg' : './src/assets/Moon.svg'}></img>
-      </div>
-      <form onSubmit={addTodoItem}>
-        <input
-          className={`todo-input ${isDarkTheme ? 'dark-theme' : ''}`}
-          type='text'
-          placeholder='Create a new todo...'
-          name='todo-text'
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        ></input>
-      </form>
-      {filteredTodoList.map((todo) => (
-        <div key={todo.id} className={`todo-items-list ${isDarkTheme ? 'dark-theme' : ''}`}>
-          <input type='checkBox' onChange={() => handleCheckBox(todo.id)}></input>
-          <span className={`${todo.isCompleted === true ? "checked-item-text" : ""} ${isDarkTheme ? 'dark-theme' : ''} `}>{todo.todoItem}</span>
-          <button type='button' onClick={() => handleTodoItem(todo.id)}><img src='./src/assets/Delete-icon.svg' /></button>
-        </div>
-      ))}
+      <Headbar isDarkTheme={isDarkTheme} isLightTheme={isLightTheme} />
+      <TodoForm addTodoItem={addTodoItem} isDarkTheme={isDarkTheme} setInputValue={setInputValue} inputValue={inputValue} />
+      <TodoItemsList filteredTodoList={filteredTodoList} isDarkTheme={isDarkTheme} handleTodoItem={handleTodoItem} handleCheckBox={handleCheckBox} />
       <div className={`filter-item-list ${todoList.length === 0 ? "hide" : ""} ${isDarkTheme ? 'dark-theme' : ''} `}>
         <span>{todoList.length} items left</span>
         <div className='hide'>
@@ -122,11 +104,8 @@ function App() {
         </div>
         <span className={isDarkTheme ? 'dark-theme' : ''} onClick={handleCompletedTodos}>Clear Completed</span>
       </div>
-      <div className={`filter-comands ${todoList.length === 0 ? "hide" : ""} ${isDarkTheme ? 'dark-theme' : ''}`}>
-        <span className={isDarkTheme ? 'dark-theme' : ''} onClick={showAllTodos}>All</span>
-        <span className={isDarkTheme ? 'dark-theme' : ''} onClick={showActiveTodos}>Active</span>
-        <span className={isDarkTheme ? 'dark-theme' : ''} onClick={showCompletedTodos}>Completed</span>
-      </div>
+      <TodoItemsFilter todoList={todoList} isDarkTheme={isDarkTheme} showAllTodos={showAllTodos} showActiveTodos={showActiveTodos} showCompletedTodos={showCompletedTodos} />
+
     </>
   )
 }
