@@ -1,0 +1,335 @@
+ * {
+   margin: 0px;
+   padding: 0px;
+   font-family: "Manrope", sans-serif;
+ }
+
+ :root {
+   --label-background-color: white;
+   --button-border-color: grey;
+   --header-background-color: rgb(209, 209, 209);
+   --price-tag-background-color: #005f84;
+   --price-tag-text-color: white;
+ }
+
+ .dark-theme {
+   --label-background-color: white;
+   --button-border-color: grey;
+   --header-background-color: rgb(98, 97, 97);
+   --price-tag-background-color: #005f84;
+   --price-tag-text-color: white;
+ }
+
+ .fs16 {
+   font-size: 16px;
+ }
+
+ .std-section {
+   max-width: 1024px;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 24px;
+   padding-right: 24px;
+   display: flex;
+   flex-direction: column;
+ }
+
+ button {
+   background-color: transparent;
+   border: none;
+ }
+
+ header {
+   padding-bottom: 40px;
+   margin-bottom: 80px;
+   border-bottom: 1px solid var(--header-background-color);
+ }
+
+ .selected {
+   border: 1px solid blue !important;
+   background-color: #e3f2fd;
+ }
+
+ /* 
+Breakpoints:
+640px
+768px
+1024px
+1280px
+1536px
+*/
+
+ /* -----------------------Hero and navbar header------------------ */
+
+ .navbar-container {
+   display: flex;
+   max-width: 1024px;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 16px;
+   padding-bottom: 16px;
+   padding-left: 24px;
+   padding-right: 24px;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .navbar-container img {
+   width: 80px;
+ }
+
+ .navbar-navigation {
+   display: flex;
+   gap: 24px;
+ }
+
+ .hero-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   padding-top: 80px;
+ }
+
+ .hero-container-form {
+   display: flex;
+   flex-direction: column;
+   gap: 48px;
+ }
+
+ .form-inputs {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+ }
+
+ .form-inputs label {
+   position: absolute;
+   top: -16px;
+   left: 24px;
+   background-color: var(--label-background-color);
+   padding: 4px;
+   z-index: 10;
+ }
+
+ .form-inputs input {
+   padding: 16px 24px;
+   border-radius: 24px;
+   width: 320px;
+   font-size: 16px;
+   background-color: transparent;
+ }
+
+ form button {
+   width: fit-content;
+   font-size: 16px;
+   padding: 8px 24px;
+   border: 1px solid var(--button-border-color);
+   border-radius: 24px;
+ }
+
+ form button:hover {
+   opacity: 50%;
+ }
+
+
+ /* -----------------------Recomended cars section------------------ */
+ .recomended-cars-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 80px;
+   margin-bottom: 40px;
+ }
+
+ .recomended-cars-container img {
+   width: 50%;
+   border: 1px solid var(--header-background-color);
+   border-radius: 32px;
+ }
+
+ .recomended-car-info span {
+   margin-bottom: 32px;
+ }
+
+ .recomended-car-info button {
+   width: fit-content;
+   font-size: 16px;
+   padding: 8px 24px;
+   border: 1px solid var(--button-border-color);
+   border-radius: 24px;
+ }
+
+
+
+
+ /* -----------------------Available Cars page------------------ */
+
+ .available-cars-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   gap: 8px;
+   margin-bottom: 40px;
+   margin-top: 160px;
+ }
+
+ .available-car-card {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid var(--button-border-color);
+   border-radius: 8px;
+   padding: 4px;
+   gap: 8px;
+ }
+
+ .available-car-card img {
+   width: 100%;
+ }
+
+ .available-car-card button {
+   padding: 4px;
+   border: 1px solid var(--button-border-color);
+   border-radius: 8px;
+ }
+
+
+ /* -----------------------Reserved Car page------------------ */
+
+ .reserved-car-container {
+   display: flex;
+   flex-direction: column;
+   gap: 48px;
+   margin-bottom: 120px;
+ }
+
+ .reserved-car-card {
+   display: flex;
+   align-items: center;
+ }
+
+ .reserved-car-card img {
+   width: 60%;
+ }
+
+ .reserved-car-price-tag {
+   display: flex;
+   flex-direction: column;
+   width: fit-content;
+   text-align: center;
+   gap: 8px;
+   font-weight: 600;
+   font-size: 18px;
+ }
+
+ .reserved-car-price-tag span:nth-last-of-type(even) {
+   background-color: var(--price-tag-background-color);
+   color: var(--price-tag-text-color);
+   font-weight: 600;
+   border-radius: 8px;
+   font-size: 24px;
+   padding: 8px 16px;
+ }
+
+ .reserved-car-benefits {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 24px;
+ }
+
+ .car-benefit-card {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   border: 1px solid var(--button-border-color);
+   padding: 32px;
+   gap: 24px;
+   border-radius: 4px;
+   transition: 0.3s ease;
+   cursor: pointer;
+ }
+
+ .car-benefit-card:hover {
+   transform: translateY(-4px);
+ }
+
+ .reserved-car-features {
+   display: flex;
+   gap: 16px;
+ }
+
+ .car-feature-card {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 48px 80px;
+   border: 1px solid var(--button-border-color);
+   border-radius: 4px;
+   transition: 0.3s ease;
+ }
+
+ .car-feature-card:hover {
+   transform: translateY(-4px);
+ }
+
+ .car-benefit-card span,
+ .car-feature-card span {
+   font-size: 56px;
+ }
+
+ .reserved-car-last-info {
+   display: flex;
+   align-items: center;
+
+ }
+
+ .reserved-car-last-info img {
+   width: 60%;
+ }
+
+ .reserved-car-last-info button {
+   border: 1px solid var(--button-border-color);
+   padding: 8px 16px;
+   border-radius: 8px;
+   margin-top: 16px;
+ }
+
+ .reserved-car-info {
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
+   margin-bottom: 24px;
+   width: 240px;
+ }
+
+ .features-list,
+ .benefits-list {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+
+ .reserved-car-total-cost {
+   padding: 8px 16px;
+   background-color: var(--price-tag-background-color);
+   color: var(--price-tag-text-color);
+   font-weight: 800;
+   border-radius: 8px;
+   width: fit-content;
+ }
+
+
+ /* -----------------------Complete reservation page------------------ */
+
+ .complete-reservation-form {
+   margin-top: 80px;
+   margin-bottom: 80px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 48px;
+   align-items: center;
+   justify-content: center;
+ }

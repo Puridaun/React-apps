@@ -1,0 +1,747 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root {
+    --label-background-color: white;
+    --button-border-color: #e5e7eb;
+    --header-background-color: #f9fafb;
+    --price-tag-background-color: #374151;
+    --price-tag-text-color: white;
+    --primary-color: #374151;
+    --secondary-color: #6b7280;
+    --accent-color: #6366f1;
+    --background-color: #ffffff;
+    --border-color: #e5e7eb;
+    --hover-bg: #f8fafc;
+    --success-color: #10b981;
+    --text-light: #9ca3af;
+}
+
+.dark-theme {
+    --label-background-color: #1f2937;
+    --button-border-color: #374151;
+    --header-background-color: #111827;
+    --price-tag-background-color: #ffffff;
+    --price-tag-text-color: #111827;
+    --primary-color: #ffffff;
+    --secondary-color: #9ca3af;
+    --accent-color: #60a5fa;
+    --background-color: #111827;
+    --border-color: #374151;
+    --hover-bg: #1f2937;
+}
+
+body {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: var(--primary-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.std-section {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+header {
+    padding: 80px 0 120px 0;
+    margin-bottom: 80px;
+}
+
+.selected {
+    border: 2px solid var(--accent-color) !important;
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* -----------------------Modern Navbar------------------ */
+
+.navbar-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0;
+}
+
+.navbar-content {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+}
+
+.navbar-container img {
+    width: 64px;
+    height: auto;
+}
+
+.navbar-navigation {
+    display: flex;
+    gap: 8px;
+}
+
+.navbar-navigation button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    color: var(--secondary-color);
+    font-size: 15px;
+}
+
+.navbar-navigation button:hover {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+}
+
+/* -----------------------Modern Hero Section------------------ */
+
+.hero-container {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 48px;
+    margin-top: 40px;
+}
+
+.hero-container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 400px;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-inputs label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.form-inputs input {
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    background: var(--background-color);
+    color: var(--primary-color);
+    transition: all 0.2s ease;
+}
+
+.form-inputs input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-inputs input::placeholder {
+    color: var(--secondary-color);
+}
+
+.hero-container form button {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    margin-top: 16px;
+}
+
+.hero-container form button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+/* -----------------------Recommended Cars Section------------------ */
+.recomended-cars-container {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 40px;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.2s ease;
+}
+
+.recomended-cars-container:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.recomended-cars-container img {
+    width: 50%;
+    border-radius: 12px;
+}
+
+.recomended-car-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.recomended-car-info h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.recomended-car-info span {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.recomended-car-info ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 16px 0;
+    padding: 0;
+}
+
+.recomended-car-info li {
+    list-style: none;
+    padding: 6px 0;
+    color: var(--secondary-color);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.recomended-car-info li:before {
+    content: "✓";
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 12px;
+}
+
+.recomended-car-info button {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
+
+.recomended-car-info button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+/* -----------------------Available Cars page------------------ */
+
+.available-cars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+    margin-top: 120px;
+}
+
+.available-car-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    gap: 12px;
+    background: var(--background-color);
+    transition: all 0.2s ease;
+}
+
+.available-car-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.available-car-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.available-car-card button {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--background-color);
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.available-car-card button:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* -----------------------Reserved Car page------------------ */
+
+.reserved-car-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 80px;
+}
+
+.reserved-car-card {
+    display: flex;
+    align-items: center;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.reserved-car-card img {
+    width: 60%;
+    border-radius: 12px;
+}
+
+.reserved-car-price-tag {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.reserved-car-price-tag span:nth-last-of-type(even) {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 20px;
+    padding: 8px 16px;
+}
+
+.reserved-car-benefits {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 32px 0;
+}
+
+.car-benefit-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    gap: 16px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: var(--background-color);
+    flex: 1;
+}
+
+.car-benefit-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.reserved-car-features {
+    display: flex;
+    gap: 16px;
+}
+
+.car-feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    background: var(--background-color);
+    flex: 1;
+}
+
+.car-feature-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.car-benefit-card span,
+.car-feature-card span {
+    font-size: 32px;
+}
+
+.reserved-car-last-info {
+    display: flex;
+    align-items: center;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    gap: 32px;
+}
+
+.reserved-car-last-info img {
+    width: 50%;
+    border-radius: 12px;
+}
+
+.reserved-car-last-info button {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    margin-top: 16px;
+}
+
+.reserved-car-last-info button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+.reserved-car-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.reserved-car-info h2 {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.reserved-car-info p {
+    color: var(--secondary-color);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.features-list,
+.benefits-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--hover-bg);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 4px 0;
+    border-left: 3px solid var(--accent-color);
+}
+
+.reserved-car-total-cost {
+    padding: 12px 16px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 700;
+    border-radius: 8px;
+    width: fit-content;
+    font-size: 18px;
+    margin: 16px 0;
+}
+
+/* -----------------------Complete reservation page------------------ */
+
+.complete-reservation-form {
+    max-width: 800px;
+    margin: 80px auto;
+    background: var(--background-color);
+    border-radius: 16px;
+    padding: 48px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.complete-reservation-form h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.form-section {
+    margin-bottom: 32px;
+}
+
+.form-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--hover-bg);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    background: var(--background-color);
+    color: var(--primary-color);
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-light);
+}
+
+.form-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #5b5ff5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--background-color);
+}
+
+.payment-method:hover {
+    border-color: var(--accent-color);
+    background: rgba(99, 102, 241, 0.02);
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 8px;
+    accent-color: var(--accent-color);
+}
+
+.order-summary {
+    background: var(--hover-bg);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 32px 0;
+    border: 1px solid var(--border-color);
+}
+
+.order-summary h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 2px solid var(--border-color);
+}
+
+/* -----------------------Responsive Design------------------ */
+
+@media (max-width: 768px) {
+    .std-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .navbar-content {
+        padding: 12px 16px;
+    }
+
+    .hero-container {
+        padding: 32px 24px;
+    }
+
+    .recomended-cars-container {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .recomended-cars-container img {
+        width: 100%;
+    }
+
+    .recomended-car-info ul {
+        grid-template-columns: 1fr;
+    }
+
+    .reserved-car-benefits {
+        flex-direction: column;
+    }
+
+    .reserved-car-features {
+        flex-direction: column;
+    }
+
+    .reserved-car-last-info {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .reserved-car-last-info img {
+        width: 100%;
+    }
+
+    .complete-reservation-form {
+        margin: 40px 16px;
+        padding: 32px 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .payment-methods {
+        grid-template-columns: 1fr;
+    }
+}
