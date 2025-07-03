@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import React from "react";
 import apiClient from "../components/API";
 import { Car } from "../components/ShowCarsSection";
+import HorizontalNonLinearStepper from "@/components/HorizontalNonLinearStepper";
 
 // location: "Bucharest";
 // rentDate: "2025-06-27";
@@ -22,6 +23,8 @@ const AvailableCarsPage: React.FC = () => {
   const navigate = useNavigate();
   const rentInputData = useLocation().state?.rentInputData;
 
+  const stepPage = -1;
+
   const [allCars, setAllCars] = useState<Car[]>([]);
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const AvailableCarsPage: React.FC = () => {
     };
 
     fetchedCars();
-  });
+  }, []);
 
   const availableCars = allCars.filter((car) => {
     if (!rentInputData.rentDate) return true; // Show all cars if no date selected
@@ -50,32 +53,52 @@ const AvailableCarsPage: React.FC = () => {
 
   return (
     <div className="std-section">
+      <HorizontalNonLinearStepper
+        currentStep={stepPage} // You're on "Select car" step
+        completedSteps={availableCars ? [-1] : []} // Mark step 0 as completed if car is selected
+      />
       <div>
         <h2>Available Cars</h2>
         {/* Display the search criteria */}
-        <p>Rent Date: {rentInputData.rentDate}</p>
-        <p>Return Date: {rentInputData.returnDate}</p>
-        <p>Location: {rentInputData.location}</p>
+        <p>
+          <span className="fw-600">Rent Date:</span> {rentInputData.rentDate}
+        </p>
+        <p>
+          <span className="fw-600">Return Date:</span>{" "}
+          {rentInputData.returnDate}
+        </p>
+        <p>
+          <span className="fw-600">Location:</span> {rentInputData.location}
+        </p>
       </div>
+
       <section className="available-cars-container">
         {availableCars.map((car, index) => (
           <div key={index} className="available-car-card">
-            <img src={car.image} alt="available-car-image" />
-            <h3>{`${car.brand} ${car.model}`}</h3>
-            <div className="flex gap-2 font-semibold ">
-              {car.characteristics.map((char, index) => (
-                <span key={index}>{char}</span>
-              ))}
+            <div className="available-car-image">
+              <img src={car.image} alt="available-car-image" />
             </div>
-            <p>{`${car.price} ${car.currency}/day`}</p>
-            <button
-              type="button"
-              onClick={() => {
-                handleReserveButton(car);
-              }}
-            >
-              Rezerva acum!
-            </button>
+            <div className="available-car-infos">
+              <h3>{`${car.brand} ${car.model}`}</h3>
+              <div className="flex gap-1">
+                {car.characteristics.map((char, index) => (
+                  <span key={index}>{char}</span>
+                ))}
+              </div>
+              <p className="fw-600 available-car-price">
+                <span>{car.price}</span>
+                {` ${car.currency}/day`}
+              </p>
+              <button
+                className="available-car-button"
+                type="button"
+                onClick={() => {
+                  handleReserveButton(car);
+                }}
+              >
+                Rezerva acum!
+              </button>
+            </div>
           </div>
         ))}
       </section>

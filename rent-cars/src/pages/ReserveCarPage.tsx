@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import ReservedCarInfo from "../components/ReservedCarInfo";
 import React from "react";
+import HorizontalNonLinearStepper from "@/components/HorizontalNonLinearStepper";
 
 export interface Benefit {
   name: string;
@@ -25,12 +26,12 @@ export const benefits: Benefit[] = [
   {
     name: "Protectie medie (SCDW)",
     description: `Responsabilitatea dvs. in caz de dauna sau furt este egal cu valoarea depozitului`,
-    price: 49.99,
+    price: 50,
   },
   {
     name: "Protectie totala (SCDW+)",
     description: `Responsabilitatea dvs. in caz de dauna sau furt este egal cu valoarea depozitului`,
-    price: 89.99,
+    price: 90,
   },
 ];
 
@@ -47,6 +48,8 @@ const ReserveCarPage: React.FC = () => {
       clickedBenefitPrice: 0,
       selectedFeaturesPrice: 0,
     });
+
+  const stepPage = 0;
 
   const getRentalDays = (): number => {
     const start: Date = new Date(rentInputData.rentDate);
@@ -89,6 +92,10 @@ const ReserveCarPage: React.FC = () => {
 
   return (
     <div className="std-section reserved-car-section">
+      <HorizontalNonLinearStepper
+        currentStep={stepPage} // You're on "Select car" step
+        completedSteps={car ? [0] : [-1]} // Mark step 0 as completed if car is selected
+      />
       <section className="reserved-car-container">
         <div className="reserved-car-card">
           <ul>

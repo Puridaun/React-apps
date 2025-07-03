@@ -40,11 +40,6 @@ const getPromotedCars = async (): Promise<Car[]> => {
 
 const ShowCarsSection: React.FC<ShowCarsSectionProps> = ({ rentInputData }) => {
   const navigate = useNavigate();
-  useEffect(() => {
-    if (rentInputData) {
-      console.log("Received rent input data:", rentInputData);
-    }
-  }, [rentInputData]);
 
   const [promotedCars, setPromotedCars] = useState<Car[]>([]);
 
@@ -72,7 +67,7 @@ const ShowCarsSection: React.FC<ShowCarsSectionProps> = ({ rentInputData }) => {
           <img src={car.image} alt="car-image" />
           <div className="recomended-car-info">
             <h2>{`${car.brand} ${car.model}`}</h2>
-            <span>Beneficii</span>
+            <h4>Beneficii</h4>
             <ul>
               <li>TVA inclus si deductibil</li>
               <li>Asistenta rutiera 24/7</li>
@@ -82,6 +77,7 @@ const ShowCarsSection: React.FC<ShowCarsSectionProps> = ({ rentInputData }) => {
               <li>Modele noi</li>
             </ul>
             <button
+              className="home-page-button"
               type="button"
               onClick={(): void => {
                 handleReserveButton(car);

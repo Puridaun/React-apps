@@ -39,7 +39,9 @@ const ReservedCarInfo: React.FC<ReservedCarInfoProps> = ({
       <img src={car.image} alt="reserved-car-image" />
       <div className="w-full">
         <div className="reserved-car-info">
-          <h2>{car.brand}</h2>
+          <h2>
+            {car.brand} {car.model}
+          </h2>
           <p>Rent Date: {rentInputData.rentDate}</p>
           <p>Return Date: {rentInputData.returnDate}</p>
           <p>Location: {rentInputData.location}</p>

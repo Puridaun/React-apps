@@ -1,155 +1,117 @@
 @import "tailwindcss";
+/* 
+---break---
+*/
+@custom-variant dark (&:is(.dark *));
+
+/* 
+Breakpoints:
+640px
+768px
+1024px
+1280px
+1536px
+*/
 
 * {
     margin: 0px;
-    padding: 0px;
+
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 :root {
-    /* Light Theme - Modern Grey Palette */
-    --primary-grey: #1f2937;
-    /* Dark grey for primary text */
-    --secondary-grey: #4b5563;
-    /* Medium grey for secondary text */
-    --tertiary-grey: #6b7280;
-    /* Light grey for muted text */
-    --surface-primary: #ffffff;
-    /* Pure white for main surfaces */
-    --surface-secondary: #f8fafc;
-    /* Very light grey for secondary surfaces */
-    --surface-tertiary: #f1f5f9;
-    /* Light grey for tertiary surfaces */
-    --border-light: #e2e8f0;
-    /* Light border */
-    --border-medium: #cbd5e1;
-    /* Medium border */
-    --accent-primary: #3b82f6;
-    /* Modern blue accent */
-    --accent-secondary: #1d4ed8;
-    /* Darker blue for hover states */
-    --accent-light: #dbeafe;
-    /* Light blue for backgrounds */
-    --success: #10b981;
-    /* Green for success states */
-    --warning: #f59e0b;
-    /* Amber for warnings */
-    --error: #ef4444;
-    /* Red for errors */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --background-primary: #F4F4F9;
+    --text-color-on-primary-bg: #000000;
+    --button-bg-color: #2F4550;
+    --button-bg-color-hover: #A8DADC;
+    --text-color-on-btn-bg: #F4F4F9;
+    --border-color: #586F7C;
+    --success: #B8DBD9;
+    --shadow-btn: #2F4550;
+    --error: #BA181B;
+    --selected-card-border: #660708;
+    --car-card-bg: #ffffff;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
 
-    /* Legacy variables for compatibility */
-    --label-background-color: var(--surface-primary);
-    --button-border-color: var(--border-light);
-    --header-background-color: var(--surface-secondary);
-    --price-tag-background-color: var(--primary-grey);
-    --price-tag-text-color: var(--surface-primary);
-    --primary-color: var(--primary-grey);
-    --secondary-color: var(--secondary-grey);
-    --accent-color: var(--accent-primary);
-    --background-color: var(--surface-primary);
-    --border-color: var(--border-light);
-    --hover-bg: var(--accent-light);
-    --hover-color: var(--accent-primary);
-    --success-color: var(--success);
-    --text-light: var(--tertiary-grey);
-    --radius: 0.75rem;
-
-    /* Design system variables */
-    --background: var(--surface-primary);
-    --foreground: var(--primary-grey);
-    --card: var(--surface-primary);
-    --card-foreground: var(--primary-grey);
-    --popover: var(--surface-primary);
-    --popover-foreground: var(--primary-grey);
-    --primary: var(--primary-grey);
-    --primary-foreground: var(--surface-primary);
-    --secondary: var(--surface-tertiary);
-    --secondary-foreground: var(--primary-grey);
-    --muted: var(--surface-secondary);
-    --muted-foreground: var(--tertiary-grey);
-    --accent: var(--accent-light);
-    --accent-foreground: var(--accent-primary);
-    --destructive: var(--error);
-    --border: var(--border-light);
-    --input: var(--border-light);
-    --ring: var(--accent-primary);
 }
 
 .dark {
-    /* Dark Theme - Modern Grey Palette */
-    --primary-grey: #f8fafc;
-    /* Light grey for primary text */
-    --secondary-grey: #cbd5e1;
-    /* Medium grey for secondary text */
-    --tertiary-grey: #94a3b8;
-    /* Darker grey for muted text */
-    --surface-primary: #0f172a;
-    /* Very dark slate for main surfaces */
-    --surface-secondary: #1e293b;
-    /* Dark slate for secondary surfaces */
-    --surface-tertiary: #334155;
-    /* Medium slate for tertiary surfaces */
-    --border-light: #334155;
-    /* Dark border */
-    --border-medium: #475569;
-    /* Medium dark border */
-    --accent-primary: #60a5fa;
-    /* Lighter blue accent for dark mode */
-    --accent-secondary: #93c5fd;
-    /* Even lighter blue for hover states */
-    --accent-light: #1e293b;
-    /* Dark blue background */
-    --success: #34d399;
-    /* Lighter green for dark mode */
-    --warning: #fbbf24;
-    /* Lighter amber for dark mode */
-    --error: #f87171;
-    /* Lighter red for dark mode */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
-
-    /* Legacy variables for compatibility */
-    --label-background-color: var(--surface-secondary);
-    --button-border-color: var(--border-light);
-    --header-background-color: var(--surface-primary);
-    --price-tag-background-color: var(--primary-grey);
-    --price-tag-text-color: var(--surface-primary);
-    --primary-color: var(--primary-grey);
-    --secondary-color: var(--secondary-grey);
-    --accent-color: var(--accent-primary);
-    --background-color: var(--surface-primary);
-    --border-color: var(--border-light);
-    --hover-bg: var(--surface-tertiary);
-    --hover-color: var(--accent-secondary);
-    --success-color: var(--success);
-    --text-light: var(--tertiary-grey);
-
-    /* Design system variables */
-    --background: var(--surface-primary);
-    --foreground: var(--primary-grey);
-    --card: var(--surface-secondary);
-    --card-foreground: var(--primary-grey);
-    --popover: var(--surface-secondary);
-    --popover-foreground: var(--primary-grey);
-    --primary: var(--primary-grey);
-    --primary-foreground: var(--surface-primary);
-    --secondary: var(--surface-tertiary);
-    --secondary-foreground: var(--primary-grey);
-    --muted: var(--surface-secondary);
-    --muted-foreground: var(--tertiary-grey);
-    --accent: var(--surface-tertiary);
-    --accent-foreground: var(--accent-primary);
-    --destructive: var(--error);
-    --border: var(--border-light);
-    --input: var(--border-light);
-    --ring: var(--accent-primary);
+    --background-primary: #000000;
+    --car-card-bg: (var(--background-primary));
+    --text-color-on-primary-bg: #F4F4F9;
+    --button-bg-color: #B8DBD9;
+    --button-bg-color-hover: #A8DADC;
+    --text-color-on-btn-bg: #000000;
+    --border-color: #F4F4F9;
+    --success: #B8DBD9;
+    --shadow-btn: #F4F4F9;
+    --error: #BA181B;
+    --selected-card-border: #660708;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
 }
 
 [data-radix-popper-content-wrapper] {
@@ -158,18 +120,31 @@
 
 .navbar-container {
     position: relative;
+    border-bottom: 1px solid var(--border-color);
 }
 
 body {
-    background: linear-gradient(135deg, var(--surface-secondary) 0%, var(--surface-tertiary) 100%);
+    background: var(--background-primary);
     color: var(--primary-color);
     line-height: 1.6;
     min-height: 100vh;
-    transition: background 0.3s ease;
 }
 
-.fs16 {
-    font-size: 16px;
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-color-on-primary-bg);
+}
+
+p {
+    color: var(--text-color-on-primary-bg);
+}
+
+.fw-600 {
+
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .std-section {
@@ -180,6 +155,7 @@ body {
     padding-right: 24px;
     display: flex;
     flex-direction: column;
+    margin-top: 80px;
 }
 
 button {
@@ -211,7 +187,7 @@ header {
 
 .navbar-container {
     width: 100%;
-    background: rgba(248, 250, 252, 0.8);
+    background: var(--background-primary);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -221,7 +197,12 @@ header {
 }
 
 .dark .navbar-container {
-    background: rgba(15, 23, 42, 0.8);
+    background: var(--background-primary);
+}
+
+.hamburger-menu-icon {
+    width: 40px !important;
+    fill: var(--text-color-on-primary-bg)
 }
 
 .navbar-content {
@@ -250,66 +231,43 @@ header {
 }
 
 .navbar-navigation button {
-    padding: 10px 18px;
-    border-radius: 10px;
+    padding: 8px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     font-weight: 500;
-    color: var(--secondary-color);
-    font-size: 15px;
+    font-size: 16px;
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--border-color);
+    color: var(--text-color-on-primary-bg);
 }
 
-.navbar-navigation button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
-    transition: left 0.5s ease;
+a {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 0.5px solid transparent;
+    color: var(--text-color-on-primary-bg);
 }
 
-.navbar-navigation button:hover::before {
-    left: 100%;
-}
-
-.navbar-navigation button:hover {
-    color: var(--hover-color);
-    background-color: var(--accent-light);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+a:hover {
+    border-bottom: 0.5px solid var(--border-color);
 }
 
 /* -----------------------Modern Hero Section------------------ */
 
 .hero-container {
-    background: var(--background-color);
+    background: var(--background-primary);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 48px;
-    margin-top: 40px;
+    border-radius: 16px;
+    padding: 40px;
     box-shadow: var(--shadow-xl);
-    transition: all 0.3s ease;
-    position: relative;
     overflow: hidden;
-}
-
-.hero-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    border-radius: 20px 20px 0 0;
-}
-
-.hero-container:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
 }
 
 .hero-container-form {
@@ -319,217 +277,129 @@ header {
     max-width: 400px;
 }
 
-.form-inputs {
-    display: flex;
-    flex-direction: column;
+.hero-form-inputs label {
+    color: var(--text-color-on-primary-bg);
 }
 
-.form-inputs label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 8px;
-}
-
-.form-inputs input {
-    padding: 14px 18px;
+.hero-form-inputs input {
+    padding: 8px;
+    border-radius: 4px;
     border: 2px solid var(--border-color);
-    border-radius: 12px;
-    font-size: 16px;
     background: var(--background-color);
-    color: var(--primary-color);
+    color: var(--text-color-on-primary-bg);
     transition: all 0.3s ease;
-    margin-bottom: 8px;
 }
 
-.form-inputs input:focus {
-    border-color: var(--accent-color);
-    outline: none;
-    box-shadow: 0 0 0 4px var(--accent-light);
-    transform: translateY(-2px);
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url('./src/assets/calendar icon.svg');
+    fill: var(--border-color);
+    border-radius: 4px;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
 }
 
-.form-inputs input::placeholder {
-    color: var(--secondary-color);
-}
-
-.hero-container form button {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    color: var(--surface-primary);
+.home-page-button {
+    background: var(--border-color);
+    color: var(--text-color-on-btn-bg);
     border: none;
-    padding: 14px 28px;
-    border-radius: 12px;
+    padding: 8px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 15px;
-    transition: all 0.3s ease;
+    font-size: 16px;
+    text-transform: uppercase;
     margin-top: 16px;
-    position: relative;
     overflow: hidden;
-}
-
-.hero-container form button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
-}
-
-.hero-container form button:hover::before {
-    left: 100%;
-}
-
-.hero-container form button:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
 }
 
 /* -----------------------Recommended Cars Section------------------ */
 .recomended-cars-container {
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: 32px;
     margin-bottom: 40px;
-    background: var(--background-color);
+    background-color: var(--car-card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 32px;
-    transition: all 0.3s ease;
-    position: relative;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-xl);
     overflow: hidden;
 }
 
-.recomended-cars-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--success), var(--accent-primary));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.recomended-cars-container:hover::before {
-    opacity: 1;
-}
-
-.recomended-cars-container:hover {
-    border-color: var(--accent-color);
-    box-shadow: var(--shadow-xl);
-    transform: translateY(-4px);
-}
-
 .recomended-cars-container img {
-    max-width: 400px;
-    background-color: #ffffff;
+    max-width: 320px;
     border-radius: 16px;
-    transition: transform 0.3s ease;
 }
 
 .recomended-cars-container:hover img {
-    transform: scale(1.02);
+    transform: scale(1.1);
+}
+
+@media (max-width: 740px) {
+    .recomended-cars-container {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 740px) {
+    .recomended-cars-container img {
+        max-width: 400px;
+
+    }
 }
 
 .recomended-car-info {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     width: 100%;
 }
 
 .recomended-car-info h2 {
-    color: var(--primary-color);
+    color: var(--text-color-on-primary-bg);
     font-size: 24px;
     font-weight: 700;
-    transition: color 0.3s ease;
 }
 
-.recomended-car-info span {
-    color: var(--secondary-color);
+.recomended-car-info h4 {
+    color: var(--text-color-on-primary-bg);
     font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.3s ease;
+    font-size: 16px;
 }
 
 .recomended-car-info ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin: 16px 0;
-    padding: 0;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 540px) {
+    .recomended-car-info ul {
+        grid-template-columns: 1fr;
+    }
 }
 
 .recomended-car-info li {
     list-style: none;
     padding: 8px 0;
-    color: var(--secondary-color);
-    font-size: 14px;
+    color: var(--text-color-on-primary-bg);
+    font-size: 16px;
     display: flex;
     align-items: center;
-    transition: all 0.3s ease;
 }
 
 .recomended-car-info li:before {
     content: "✓";
-    color: var(--success);
     font-weight: bold;
     margin-right: 8px;
     font-size: 12px;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--success);
-    color: white;
-    border-radius: 50%;
-    font-size: 10px;
+    color: var(--success);
+    font-size: 16px;
 }
 
-.recomended-car-info li:hover {
-    color: var(--primary-color);
-    transform: translateX(4px);
-}
-
-.recomended-car-info button {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--background-color);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.recomended-car-info button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
-}
-
-.recomended-car-info button:hover::before {
-    left: 100%;
-}
-
-.recomended-car-info button:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+.home-page-button:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-btn);
 }
 
 /* -----------------------Available Cars page------------------ */
@@ -537,89 +407,84 @@ header {
 .available-cars-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 28px;
+    gap: 24px;
     margin-bottom: 40px;
-    margin-top: 120px;
+    margin-top: 80px;
 }
 
 .available-car-card {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 20px;
+    border: 1px solid var(--background-primary);
+    border-radius: 8px;
+    padding: 24px;
     gap: 16px;
-    background: var(--background-color);
-    transition: all 0.3s ease;
-    position: relative;
+    background: var(--car-card-bg);
     overflow: hidden;
-}
-
-.available-car-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--success));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.available-car-card:hover::before {
-    transform: scaleX(1);
+    color: var(--text-color-on-primary-bg);
 }
 
 .available-car-card:hover {
-    border-color: var(--accent-color);
+    border-color: var(--selected-card-border);
     box-shadow: var(--shadow-xl);
     transform: translateY(-6px);
 }
 
-.available-car-card img {
+.available-car-image {
     width: 100%;
-    border-radius: 12px;
-    background-color: #ffffff;
-    transition: transform 0.3s ease;
+    height: 160px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
 }
 
 .available-car-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 
-.available-car-card button {
-    padding: 12px 20px;
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    background: var(--background-color);
-    color: var(--primary-color);
-    font-weight: 500;
-    transition: all 0.3s ease;
-    font-size: 14px;
-    position: relative;
+.available-car-infos {
+    display: flex;
+    flex-direction: column;
+}
+
+.available-car-infos h3 {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 64px;
+}
+
+.available-car-price {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.available-car-price span {
+    font-size: 24px;
+    color: var(--success);
+    font-weight: 700;
+}
+
+.available-car-button {
+    background: var(--border-color);
+    color: var(--text-color-on-btn-bg);
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 16px;
+    width: 100%;
     overflow: hidden;
 }
 
-.available-car-card button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
-    transition: left 0.5s ease;
-}
-
-.available-car-card button:hover::before {
-    left: 100%;
-}
-
-.available-car-card button:hover {
-    background: var(--primary-color);
-    color: var(--background-color);
-    border-color: var(--primary-color);
+.available-car-button:hover {
+    background: var(--button-bg-color-hover);
+    color: var(--text-color-on-btn-bg);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -752,8 +617,9 @@ header {
 }
 
 .reserved-car-features {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
     gap: 24px;
 }
 
@@ -907,10 +773,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    padding: 4px;
     margin: 8px 0;
     border-left: 4px solid var(--accent-color);
-    background: var(--accent-light);
     border-radius: 0 8px 8px 0;
     transition: all 0.3s ease;
 }
@@ -951,4 +816,108 @@ header {
     left: 100%;
 }
 
-.reserved-car
+.complete-reservation-form-inputs {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+
+}
+
+.customer-info-inputs {
+    width: 480px;
+    display: flex;
+
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--surface-primary);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.customer-message {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width: 480px;
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    height: 160px;
+    padding: 16px;
+}
+
+.customer-form {
+    margin-top: 40px;
+}
+
+/* 
+---break---
+*/
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* 
+---break---
+*/
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+}

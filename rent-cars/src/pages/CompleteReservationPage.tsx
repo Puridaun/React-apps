@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
 import React from "react";
 import { benefits } from "./ReserveCarPage";
+import HorizontalNonLinearStepper from "@/components/HorizontalNonLinearStepper";
+
 interface InputsForm {
   labelName: string;
   inputName: string;
@@ -66,6 +68,8 @@ const CompleteReservationPage: React.FC = () => {
   const rentInputData = location.state?.rentInputData;
   const getBenefitAndFeaturesPrice = location.state?.getBenefitAndFeaturesPrice;
   const rentalDays = location.state?.rentalDays;
+
+  const stepPage = 1;
 
   const {
     clickedBenefit,
@@ -135,19 +139,28 @@ const CompleteReservationPage: React.FC = () => {
   };
 
   return (
-    <section className="std-section">
+    <section className="std-section customer-form">
+      <HorizontalNonLinearStepper
+        currentStep={stepPage} // You're on "Select car" step
+        completedSteps={car ? [0, 1] : [-1, 0]} // Mark step 0 as completed if car is selected
+      />
       <form onSubmit={onSubmit} className="complete-reservation-form">
-        {formInputs.map((item: InputsForm, index: number) => (
-          <div key={index} className="form-inputs">
-            <label htmlFor="">{item.labelName}</label>
-            <input
-              placeholder={item.labelName}
-              name={item.inputName}
-              type={item.inputType}
-            ></input>
-          </div>
-        ))}
-        <textarea placeholder="Nice"></textarea>
+        <div className="complete-reservation-form-inputs">
+          {formInputs.map((item: InputsForm, index: number) => (
+            <div key={index} className="form-inputs customer-info-inputs">
+              <label htmlFor="">{item.labelName}</label>
+              <input
+                placeholder={item.labelName}
+                name={item.inputName}
+                type={item.inputType}
+              ></input>
+            </div>
+          ))}
+        </div>
+        <textarea
+          className="customer-message"
+          placeholder="Your message..."
+        ></textarea>
         <div className="reserved-car-last-info">
           <img src={car.image} alt="reserved-car-image" />
           <div>
