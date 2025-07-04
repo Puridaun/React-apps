@@ -184,7 +184,7 @@ button {
 }
 
 header {
-    padding: 80px 0 120px 0;
+
     margin-bottom: 80px;
 }
 
@@ -340,6 +340,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 24px;
     box-shadow: var(--shadow-xl);
     overflow: hidden;
+    margin-bottom: 24px;
 }
 
 .recomended-cars-container img {
@@ -745,6 +746,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 16px;
     padding: 24px;
     gap: 8px;
+    overflow: hidden;
 }
 
 .reserve-car-last-info:hover {
