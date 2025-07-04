@@ -35,40 +35,58 @@ const ReservedCarInfo: React.FC<ReservedCarInfoProps> = ({
   } = getBenefitAndFeaturesPrice;
 
   return (
-    <div className="reserved-car-last-info">
-      <img src={car.image} alt="reserved-car-image" />
+    <div className="reserve-car-last-info">
+      <img src={car.image} alt="reserve-car-image" />
       <div className="w-full">
-        <div className="reserved-car-info">
-          <h2>
+        <div className="reserve-car-info">
+          <h3>
             {car.brand} {car.model}
-          </h2>
-          <p>Rent Date: {rentInputData.rentDate}</p>
-          <p>Return Date: {rentInputData.returnDate}</p>
-          <p>Location: {rentInputData.location}</p>
+          </h3>
+          <p>
+            <span className="fw-600">Rent Date:</span> {rentInputData.rentDate}
+          </p>
+          <p>
+            <span className="fw-600">Return Date:</span>{" "}
+            {rentInputData.returnDate}
+          </p>
+          <p>
+            <span className="fw-600">Location:</span> {rentInputData.location}
+          </p>
         </div>
-        <div className="reserved-car-info">
+        <div className="reserve-car-info">
           {clickedBenefit ? (
             <div className="benefits-list">
               <span>{benefits[clickedBenefit].name}</span>
-              <span>{benefits[clickedBenefit].price}$</span>
+              <span>
+                <span className="price-style">
+                  {benefits[clickedBenefit].price}
+                </span>{" "}
+                {car.currency}
+              </span>
             </div>
           ) : null}
           {selectedFeatures.map((feature: number, index: number) => (
             <div key={index} className="features-list">
               <span>{car.features[feature]}</span>
-              <span>{car.feature_price}$</span>
+              <span>
+                <span className="price-style">{car.feature_price} </span>{" "}
+                {car.currency}
+              </span>
             </div>
           ))}
         </div>
-        <div className="reserved-car-total-cost">
+        <div className="reserve-car-total-cost">
           <span>
-            {car.price * rentalDays +
-              clickedBenefitPrice +
-              selectedFeaturesPrice}
-            $ / {rentalDays} days
+            <span className="total-price-style">
+              {car.price * rentalDays +
+                clickedBenefitPrice +
+                selectedFeaturesPrice}
+            </span>{" "}
+            {car.currency} / {rentalDays} days
           </span>
         </div>
         <button
+          className="reserve-button"
           type="button"
           onClick={() => {
             toCompleteReservationPage();

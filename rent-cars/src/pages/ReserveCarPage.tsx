@@ -96,23 +96,28 @@ const ReserveCarPage: React.FC = () => {
         currentStep={stepPage} // You're on "Select car" step
         completedSteps={car ? [0] : [-1]} // Mark step 0 as completed if car is selected
       />
-      <section className="reserved-car-container">
-        <div className="reserved-car-card">
+      <section className="reserve-car-container">
+        <div className="reserve-car-card">
           <ul>
             <li>Asistenta rutiera 24/7</li>
             <li>Anulare gratuita</li>
             <li>Fara plata in avans</li>
             <li>Modele noi disponibile pentru inchiriere auto</li>
           </ul>
-          <img src={car.image} alt="to-reserve-car-image" />
-          <div className="reserved-car-price-tag">
-            <span>{car.price * rentalDays}$</span>
-            <span>{rentalDays} zile</span>
+          <div className="reserve-car-image-and-price">
+            <img src={car.image} alt="to-reserve-car-image" />
+            <div className="reserve-car-price-tag">
+              <span className="price-tag">
+                {car.price * rentalDays}
+                {car.currency}
+              </span>
+              <span className="nr-days">{rentalDays} zile</span>
+            </div>
           </div>
         </div>
 
-        <h2>Protectie in caz de dauna</h2>
-        <div key={car.id} className="reserved-car-benefits">
+        <h3>Protectie in caz de dauna</h3>
+        <div key={car.id} className="reserve-car-benefits">
           {benefits.map((benefit: Benefit, index: number) => (
             <button
               key={index}
@@ -133,24 +138,26 @@ const ReserveCarPage: React.FC = () => {
           ))}
         </div>
 
-        <h2>Echipamente aditionale</h2>
-        <div key={car.id + 1} className="reserved-car-features">
+        <h3>Echipamente aditionale</h3>
+        <div key={car.id + 1} className="reserve-car-features">
           {car.features.map((feature: string[], index: number) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => {
-                handleFeatureSelection(index);
-              }}
-              className={`car-feature-card ${
-                getBenefitAndFeaturesPrice.selectedFeatures.includes(index)
-                  ? "selected"
-                  : ""
-              }`}
-            >
-              <h3>{feature}</h3>
-              <span>{`${car.feature_price} ${car.currency}`}</span>
-            </button>
+            <div className="feature-container">
+              <button
+                key={index}
+                type="button"
+                onClick={() => {
+                  handleFeatureSelection(index);
+                }}
+                className={`car-feature-card ${
+                  getBenefitAndFeaturesPrice.selectedFeatures.includes(index)
+                    ? "selected"
+                    : ""
+                }`}
+              >
+                <p>{feature}</p>
+                <span className="feature-price">{`${car.feature_price} ${car.currency}`}</span>
+              </button>
+            </div>
           ))}
         </div>
         <ReservedCarInfo

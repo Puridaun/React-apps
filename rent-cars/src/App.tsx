@@ -1,5 +1,4 @@
-// import './App.css'
-import "./NewStyle.css";
+import "./App.css";
 import HomePage from "./pages/HomePage";
 import AvailableCarsPage from "./pages/AvailableCarsPage";
 import ReserveCarPage from "./pages/ReserveCarPage";
@@ -35,7 +34,7 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 };
