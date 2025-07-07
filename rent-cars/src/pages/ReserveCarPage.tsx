@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import ReservedCarInfo from "../components/ReservedCarInfo";
+import ReserveCarInfo from "../components/ReserveCarInfo";
 import React from "react";
 import HorizontalNonLinearStepper from "@/components/HorizontalNonLinearStepper";
 
@@ -11,7 +11,7 @@ export interface Benefit {
 }
 
 export interface BenefitAndFeaturesPrice {
-  clickedBenefit: number;
+  clickedBenefit: number | null;
   selectedFeatures: number[];
   clickedBenefitPrice: number;
   selectedFeaturesPrice: number;
@@ -43,7 +43,7 @@ const ReserveCarPage: React.FC = () => {
 
   const [getBenefitAndFeaturesPrice, setGetBenefitAndFeaturePrice] =
     useState<BenefitAndFeaturesPrice>({
-      clickedBenefit: 0,
+      clickedBenefit: null,
       selectedFeatures: [],
       clickedBenefitPrice: 0,
       selectedFeaturesPrice: 0,
@@ -108,8 +108,7 @@ const ReserveCarPage: React.FC = () => {
             <img src={car.image} alt="to-reserve-car-image" />
             <div className="reserve-car-price-tag">
               <span className="price-tag">
-                {car.price * rentalDays}
-                {car.currency}
+                {`${car.price * rentalDays} ${car.currency}`}
               </span>
               <span className="nr-days">{rentalDays} zile</span>
             </div>
@@ -160,7 +159,7 @@ const ReserveCarPage: React.FC = () => {
             </div>
           ))}
         </div>
-        <ReservedCarInfo
+        <ReserveCarInfo
           getBenefitAndFeaturesPrice={getBenefitAndFeaturesPrice}
           rentInputData={rentInputData}
           car={car}
