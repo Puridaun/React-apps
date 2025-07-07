@@ -7,8 +7,8 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: '*',
-    credentials: true,
+    origin: 'http://localhost:5173', // ✅ exact frontend address
+    credentials: true                // ✅ allow cookies/auth headers if needed
 }));
 
 const rentCarsRoutes = require('./src/rent-cars/routes');
