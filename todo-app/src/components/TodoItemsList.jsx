@@ -6,7 +6,7 @@ const TodoItemsList = ({ filteredTodoList, isDarkTheme, handleTodoItem, handleCh
                 <input type='checkBox' onChange={() => handleCheckBox(todo.id)} checked={todo.isCompleted}
                 ></input>
                 <span className={`${todo.isCompleted === true ? "checked-item-text" : ""} ${isDarkTheme ? 'dark-theme' : ''} `}>{todo.todoItem}</span>
-                <button type='button' onClick={() => handleTodoItem(todo.id)}><img src='./src/assets/Delete-icon.svg' /></button>
+                <button type='button' onClick={() => handleTodoItem(todo.id)}><img src='/images/Delete-icon.svg' /></button>
             </div>
         ))
     );
